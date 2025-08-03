@@ -1,6 +1,6 @@
 function getComputerChoice(){
     const choices = ["rock","paper","scissors"];
-    return choices[Math.floor(Math.random()*choices.length)];
+    return choices[Math.floor(Math.random()*choices.length)];    
 }
 
 function getHumanChoice(){
@@ -27,12 +27,12 @@ function playRound(humanChoice, computerChoice){
         scissors:"paper"
     };
 
-    if (winningMoves[humanChoice] = computerChoice){
+    if (winningMoves[humanChoice] === computerChoice){
         humanScore++;
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
     }
     else{
-        computerChoice++
+        computerScore++
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
     }
 }
@@ -41,6 +41,7 @@ function playGame(){
     for (let i = 0; i < 5; i++){
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
+        console.log(computerChoice)
         playRound(humanChoice,computerChoice);
     }
 
