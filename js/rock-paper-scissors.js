@@ -6,7 +6,7 @@ function getComputerChoice(){
 function getHumanChoice(){
     let choice;
     while (true){
-        choice = prompt("Rock, Paper or Scissors").toLowerCase;
+        choice = prompt("Rock, Paper or Scissors").toLowerCase();
         if (["rock","paper","scissors"].includes(choice)) break;
         alert("Invalid choice! Please enter Rock, Paper or Scissors");
     }
