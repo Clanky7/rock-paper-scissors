@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border:5px solid red; */
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.main{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.header{
+    text-align: center;
+    background-color:rgb(0, 126, 181);
+    padding:40px 0;
+}
+
+h1{
+    font-size: 32px;
+    color:rgb(234, 33, 26);
+    font-family: 'Press Start 2P',cursive;
+}
+
+h3,
+h5{
+    font-family: 'Press Start 2P',cursive;
+    color:rgb(234, 33, 26);
+    padding: 24px;
+}
+
+h3{
+    padding-bottom: 0;
+}
+
+h5{
+    padding-top: 16px;
+}
+
+
+.game-wrapper{
+    display: flex;
+    justify-content: center;
+    gap:3em;
+    background-color: rgb(0, 126, 181);
+    flex:1;
+}
+
+.player-container > h3,
+.user-score,
+.computer-container > h3,
+.pc-score{
+    text-align: center;
+}
+
+
+.player-label{
+    background-color: rgb(0, 126, 181);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    
+    padding-right: 13%;
+    padding-left: 17%;
+}
+
+.player-type{
+    padding-top: 10%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    background-color: rgb(0, 126, 181);
+    padding: 16px;
+}
+
+
+
+img{
+    height: 80px;
+    border: none;
+}
+.btn{
+    background-color: rgb(150, 202, 224);
+    flex: 1;               /* all take equal width */
+    display: flex;         /* center image + text */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 100px;      /* keeps them from shrinking too much */
+    min-height: 120px;     /* ensures same height */
+
+}
+
+.score h2{
+    color:#e5e5e5;
+    margin-top: 10%;
+}
+
+.footer{
+    background-color: rgb(0, 126, 181) ;
+    justify-self: stretch;
+    border: 5px solid red;
+   
+}

@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
 </head>
 <body>
-    <script src="js/rock-paper-scissors.js"></script>
+    <div class="main">  
+        <div class="header">
+            <h1>Rock Paper scissors</h1>
+            <h3>Choose your weapon</h3>
+            <h5>score 5 points to win</h5>
+        </div>                      
+        <div class="game-wrapper">
+            <div class="player-container">
+                <h3>Human</h3>
+                <div class="player-label">
+                    <div class="player-type">
+                        <img src="Images/human-profile.jpg" alt="Player picture">
+                    </div>
+                    <div class="score">
+                        <h3>Score</h3>
+                        <h2 class="user-score">0</h2>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="btn rock"><img src="Images/rock.jpg" alt="rock">Rock</div>
+                    <div class="btn paper"><img src="Images/paper.jpg" alt="paper">Paper</div>
+                    <div class="btn scissors"><img src="Images/scissors.jpg" alt="scissors">Scissors</div>
+                </div>
+            </div>
+            <div class="computer-container">
+                <h3>Computer</h3>
+                <div class="player-label">
+                    <div class="player-type">
+                        <img src="Images/comp icon.jpg" alt="Player picture">
+                    </div>
+                    <div class="score">
+                        <h3>Score</h3>
+                        <h2 class="pc-score">0</h2>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="btn rock"><img src="Images/rock.jpg" alt="rock">Rock</div>
+                    <div class="btn paper"><img src="Images/paper.jpg" alt="paper">Paper</div>
+                    <div class="btn scissors"><img src="Images/scissors.jpg" alt="scissors">Scissors</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h3 class = "round-resilt"></h3>
+        </div>
+    </div>
+        
+    
+    <!-- <script src="js/rock-paper-scissors.js"></script> -->
 </body>
 </html>
