@@ -32,17 +32,27 @@ function removeTransitonPc(e){
     this.classList.remove("hovered");
 }
 
+function clicked(e) {
+    const btn = e.currentTarget;
+    btn.classList.add("clicked");
+    const computerChoice = getComputerChoice();
+    const pcBtn = document.querySelector(`.computer-container .${computerChoice}`);
+    pcBtn.classList.add("hovered", "clicked");
+    playRound(btn.innerText.toLowerCase(), computerChoice);
+}
+
 playerButtons.forEach(btn => {
     btn.addEventListener("mouseenter", () => btn.classList.add("hovered"));
     btn.addEventListener("mouseleave", () => btn.classList.remove("hovered"));
-    btn.addEventListener('click',function(){
-            btn.classList.add("clicked")
-            const computerChoice = getComputerChoice();
-            const pcBtn = document.querySelector(`.computer-container .${computerChoice}`);
-            pcBtn.classList.add("hovered");
-            pcBtn.classList.add("clicked");
-            playRound(btn.innerText.toLowerCase(),computerChoice);
-        });
+    btn.addEventListener("click", clicked);
+    btn.addEventListener("transitionend", removeTransiton);
+});
+
+
+playerButtons.forEach(btn => {
+    btn.addEventListener("mouseenter", () => btn.classList.add("hovered"));
+    btn.addEventListener("mouseleave", () => btn.classList.remove("hovered"));
+    btn.addEventListener('click',clicked);
     btn.addEventListener("transitionend",removeTransiton);
 });
 
@@ -69,6 +79,9 @@ function playRound(humanChoice, computerChoice){
         if (humanScore === 5){
             document.querySelector(".round-result").innerText = `You win!`
             document.querySelector(".user-score").innerText = `${humanScore}`;
+            playerButtons.forEach(btn => {
+                btn.removeEventListener('click',clicked);
+            })
             playAgain();
         }
         else{
@@ -78,16 +91,44 @@ function playRound(humanChoice, computerChoice){
     }
     else{
         computerScore++
-        document.querySelector(".pc-score").innerText = `${computerScore}`
-        document.querySelector(".round-result").innerText =`You lose! ${computerChoice} beats ${humanChoice}`;
+        if (computerScore === 5){
+            document.querySelector(".round-result").innerText = `You lose!`
+            document.querySelector(".pc-score").innerText = `${computerScore}`;
+            playerButtons.forEach(btn => {
+            btn.removeEventListener('click',clicked);
+            })
+        playAgain();
+        }
+        else{
+            document.querySelector(".pc-score").innerText = `${computerScore}`
+            document.querySelector(".round-result").innerText =`You lose! ${computerChoice} beats ${humanChoice}`;
+        }
     }
 }
 
 function playAgain(){
     const playAgainBtn = document.createElement("button");
     playAgainBtn.innerText = "Play Again";
+    playAgainBtn.classList.add('play-again')
     document.querySelector(".round-result").parentElement.append(playAgainBtn);
+    playAgainBtn.addEventListener('click',resetGame);
 }
+
+function resetGame(e){
+    document.querySelector('.user-score').innerText = '0';
+    document.querySelector('.pc-score').innerText = '0';
+    playerButtons.forEach(btn => btn.addEventListener('click',clicked));
+    
+    humanScore = 0;
+    computerScore = 0;
+    
+    document.querySelector('.round-result').innerText = "";
+    
+    e.target.remove();
+}
+
+
+
 
 // function playGame(){
 //     for (let i = 0; i < 5; i++){

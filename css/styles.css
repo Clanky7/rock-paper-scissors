@@ -124,7 +124,13 @@ img{
 }
 
 .clicked{
-    transform: scale(1.1);
-    
+    transform: scale(1.1); 
+}
+
+.play-again{
+    margin-top: 32px;
+    padding: 16px;
+    border-radius: 10px;
+    font-family: 'Press Start 2P',cursive;
 }
 
